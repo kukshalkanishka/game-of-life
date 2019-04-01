@@ -1,12 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import Board from "./Board";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.startLife = this.startLife.bind(this);
+    this.boardRef = React.createRef();
+  }
+  render() {
+    return (
+      <div>
+        <Board ref={this.boardRef} />
+        <button onClick={this.startLife}>Start Life</button>
+      </div>
+    );
+  }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  startLife() {
+    setInterval(() => {
+      {
+        this.boardRef.current.changeLifeZone();
+      }
+    }, 100);
+  }
+}
+
+ReactDOM.render(<Game />, document.getElementById("root"));
