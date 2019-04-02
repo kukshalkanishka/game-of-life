@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Board from "./Board";
+import "./boardStyle.css";
 
 class Game extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ class Game extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="board">
         <Board ref={this.boardRef} />
-        <button onClick={this.startLife}>Start Life</button>
+        <button onClick={this.startLife} className="start-life-btn">
+          Start Life
+        </button>
       </div>
     );
   }

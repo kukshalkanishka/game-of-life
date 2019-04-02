@@ -10,7 +10,7 @@ class NeighbourHandler {
     });
 
     return neighbours.filter(neighbour => {
-      return !(neighbour[0] == rowPosition && neighbour[1] == columnPosition);
+      return !(neighbour[0] === rowPosition && neighbour[1] === columnPosition);
     });
   }
 
@@ -29,7 +29,6 @@ class NeighbourHandler {
   }
 
   isCellValid(board, { rowPosition, columnPosition }) {
-    console.log(board);
     return (
       board[rowPosition] != undefined &&
       board[rowPosition][columnPosition] != undefined
